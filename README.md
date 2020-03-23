@@ -1,2 +1,2 @@
 # CS111.K21.KHTN
-# Nguyên l
+# Nguyên lý và phương pháp lập trình.
