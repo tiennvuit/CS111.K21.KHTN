@@ -1,7 +1,8 @@
 import os
 import argparse
 
-def load_dict(path_dict: str):
+
+def load_dict(path_dict:str):
     """
     @arguments:
         - path_dict (string): the path of dictionary/syllabus file.
@@ -63,7 +64,7 @@ def main(args):
     dictionary = load_dict(path_dict=path_dictionary)
     document = load_test(path_test=path_test_file)
 
-    print("-------------------------The dictionary------------------------")
+    print("-------------------------The dictionary---------------------------")
     print(dictionary)
     print("-------------------------The test document------------------------")
     print(document)
