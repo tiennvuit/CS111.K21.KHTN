@@ -2,8 +2,6 @@ import os
 import argparse
 import time
 
-START_TIME = time.time()
-
 
 def load_dict(path_dict: str):
     """
@@ -79,8 +77,8 @@ def main(args):
     # Solve problem
     count_appear, frequency = process(dictionary=dictionary, document=document)
     print(f"The number of word in dictionary appear in the test document is {count_appear}")
-    print(f"The percentage is {frequency}%")
-    print("--- %s seconds ---" % (time.time() - START_TIME))
+    print(f"The percentage is {frequency} %")
+    
 
 
 if __name__ == "__main__":
@@ -88,5 +86,7 @@ if __name__ == "__main__":
     parser.add_argument("--dict_path", help="The path of dictionary", default="syllables.txt")
     parser.add_argument("--test_path", help="The path of test file.", default="test.txt")
     args = parser.parse_args()
-
+    START_TIME = time.time()
     main(args)
+    print("--- %s seconds ---" % (time.time() - START_TIME))
+  
