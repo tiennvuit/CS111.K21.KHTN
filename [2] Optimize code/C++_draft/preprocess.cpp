@@ -31,6 +31,6 @@ void preprocess(string& str)
 			break;
 		--i;
 	}
-	str.erase(i+1, n-i);
+	str.erase(i, n-i);
 }
 
