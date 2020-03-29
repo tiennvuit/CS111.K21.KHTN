@@ -39,12 +39,13 @@ def load_test(path_test:str):
         for word in word_list:
             # preprocess data
             word = word.translate(table).upper()
-            if word in dict_count:
-                # increase frequency of word
-                dict_count[word] += 1
-            else:
-                # add the word to dictionary
-                dict_count[word] = 1
+            if " " not in word and "\n" not in word:
+                if word in dict_count:
+                    # increase frequency of word
+                    dict_count[word] += 1
+                else:
+                    # add the word to dictionary
+                    dict_count[word] = 1
         return dict_count
 
     return None
