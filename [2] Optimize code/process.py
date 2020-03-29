@@ -106,5 +106,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     START_TIME = time.time()
     main(args)
-    print("--- %s seconds ---" % (time.time() - START_TIME))
+    print("The time execution is  %s seconds ---" % (time.time() - START_TIME))
   
