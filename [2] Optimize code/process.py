@@ -1,6 +1,7 @@
 import os
 import argparse
 import time
+import string
 
 
 def load_dict(path_dict: str):
@@ -18,7 +19,7 @@ def load_dict(path_dict: str):
     return []
 
 
-def load_test(path_test: str):
+def load_test(path_test:str):
     """
     @arguments:
         - path_test (string): the path of test document containt some of paragraph we need check.
@@ -28,19 +29,36 @@ def load_test(path_test: str):
     with open(path_test, 'r', encoding="utf8") as f:
         content = f.read()
         word_list = list(map(str, content.split(" ")))
+    
+        # make a table for preprocess data
+        table = str.maketrans('', '', string.punctuation)
 
         # Count the frequency of every word in the test file.
         dict_count = dict()
+        
         for word in word_list:
+            # preprocess data
+            word = word.translate(table).upper()
             if word in dict_count:
-                dict_count[word.upper()] += 1
+                # increase frequency of word
+                dict_count[word] += 1
             else:
-                dict_count[word.upper()] = 1
+                # add the word to dictionary
+                dict_count[word] = 1
         return dict_count
 
     return None
 
-
+def display_test(document: dict):
+    for item in document:
+        print(item, end="   ")
+        print(document[item])
+    
+def display_dict(dictionary: list):
+    for item in dictionary:
+        print(item)
+    
+    
 def process(dictionary: list, document: dict):
     """
     @parameter:
@@ -69,10 +87,10 @@ def main(args):
     dictionary = load_dict(path_dict=path_dictionary)
     document = load_test(path_test=path_test_file)
 
-    print("-------------------------The dictionary---------------------------")
-    print(dictionary)
-    print("-------------------------The test document------------------------")
-    print(document)
+    # print("-------------------------The dictionary---------------------------")
+    # display_dict(dictionary=dictionary)
+    # print("-------------------------The test document------------------------")
+    # display_test(document=document)
 
     # Solve problem
     count_appear, frequency = process(dictionary=dictionary, document=document)
