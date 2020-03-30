@@ -88,6 +88,7 @@ def main(args):
     dictionary = load_dict(path_dict=path_dictionary)
     document = load_test(path_test=path_test_file)
 
+    print("The number of word in test file is", len(document))
     # print("-------------------------The dictionary---------------------------")
     # display_dict(dictionary=dictionary)
     # print("-------------------------The test document------------------------")
